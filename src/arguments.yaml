@@ -3,11 +3,11 @@ version: "0.0.1"
 author: Aayla Fetzer <aayla.fetzer@gmail.com>
 about: Searches git repositories for configurable regular expressions
 args:
-  - config:
-      short: c
-      value_name: FILE
-      help: Sets a custom configuration file
-  - INPUT:
-      help: Path to the git repository
+  - EXPRESSIONS:
+      help: Path to the regular expressions to search for
       required: true
       index: 1
+  - REPO:
+      help: Path to the git repository
+      required: true
+      index: 2
