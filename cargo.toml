@@ -5,4 +5,10 @@ authors = ["Aayla <aayla.fetzer@gmail.com>"]
 description = "Search folders for sensitive information, custom regex filters, and high-entropy strings"
 readme = "readme.md"
 publish = false
-default-run = "main"
+
+[[bin]]
+name = "reposearch"
+path = "src/main.rs"
+
+[dependencies]
+clap = {version = "*", features = ["yaml"]}
