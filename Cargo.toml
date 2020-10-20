@@ -5,6 +5,7 @@ authors = ["Aayla <aayla.fetzer@gmail.com>"]
 description = "Search folders for sensitive information, custom regex filters, and high-entropy strings"
 readme = "readme.md"
 publish = false
+edition = "2018"
 
 [[bin]]
 name = "reposearch"
@@ -12,3 +13,5 @@ path = "src/main.rs"
 
 [dependencies]
 clap = {version = "*", features = ["yaml"]}
+serde = { version = "1.0.116", features = ["derive"] }
+confy = "0.4.0"
