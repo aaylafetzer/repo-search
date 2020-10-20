@@ -1,0 +1,8 @@
+[package]
+name = "repo_search"
+version = "0.0.1"
+authors = ["Aayla <aayla.fetzer@gmail.com>"]
+description = "Search folders for sensitive information, custom regex filters, and high-entropy strings"
+readme = "readme.md"
+publish = false
+default-run = "main"
