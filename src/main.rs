@@ -9,10 +9,12 @@ fn main() {
     let matches = App::from(yaml_args).get_matches();
 
     // Process arguments
-    let expressions_path: &str = matches.value_of("EXPRESSIONS").expect("Error getting input argument");
-    let repo_path: &str = matches.value_of("REPO").expect("Error getting repo argument");
+    let expressions_path: &str = matches.value_of("EXPRESSIONS")
+        .expect("Error getting input argument");
+    let repo_path: &str = matches.value_of("REPO")
+        .expect("Error getting repo argument");
     // Read regular expressions from file
-    let expressions = load_regex::load_regex(expressions_path);
+    let _expressions = load_regex::load_regex(expressions_path);
     // Find the provided path
     let is_git = target_path::test_for_git(repo_path).expect("uwu");
     match is_git {
@@ -20,7 +22,9 @@ fn main() {
             println!("Uwu!");
         }
         "folder" => {
-            println!("Owo");
+            println!("Descending");
+            target_path::walk_directory(repo_path)
+                .expect("Error descending into directory");
         }
         "file" => {
             println!("uguu");

@@ -1,6 +1,7 @@
 use std::error::Error;
 use std::fs::metadata;
 use git2::Repository;
+use walkdir::WalkDir;
 
 /// Tests if the given path is a git repository
 /// # Arguments
@@ -14,14 +15,29 @@ pub(crate) fn test_for_git(path: &str) -> Result<&str, Box<dyn Error>> {
      if md.is_file() {
         return Ok("file");
      }
-     let repo = match Repository::open(path) {
-         Ok(repo) => {
+     match Repository::open(path) {
+         Ok(_repo) => {
             // Path is a git repository
             return Ok("git")
          }
-         Err(e) => {
+         Err(_e) => {
              // Path is not a git repo
             return Ok("folder")
          }
      };
+}
+
+/// Walks the given directory and runs each file through 
+/// the regular expressions
+/// # Arguments
+/// 1. path - The path of the directory to walk
+/// # Examples
+/// ```rs
+/// walk_directory("folder/");
+/// ```
+pub(crate) fn walk_directory(path: &str) -> Result<(), Box<dyn Error>>{
+   for entry in WalkDir::new(path) {
+      println!("{}", entry?.path().display());
+   }
+   Ok(())
 }
