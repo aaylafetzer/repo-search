@@ -12,6 +12,7 @@ name = "reposearch"
 path = "src/main.rs"
 
 [dependencies]
-clap = {version = "*", features = ["yaml"]}
+clap = {version = "2.33.2", features = ["yaml"]}
 serde = { version = "1.0.116", features = ["derive"] }
 confy = "0.4.0"
+git2 = "0.13.12"
