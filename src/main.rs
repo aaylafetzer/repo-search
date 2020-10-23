@@ -1,4 +1,4 @@
-mod load_regex;
+mod regex;
 mod target_path;
 
 use clap::{App, load_yaml};
